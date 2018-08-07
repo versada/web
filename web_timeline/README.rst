@@ -27,6 +27,13 @@ the possible attributes for the tag:
 * default_group_by (required): it defines the name of the field that will be
   taken as default group by when accessing the view or when no other group by
   is selected.
+* background_group_by (optional): it defines when backgrounds on grouped
+  timeline will be applied. I.e. if the group by is this field, the
+  background painting will be applied.
+* background_date_start (optional): it defines start date of the group
+  background, all records within grouped set should have this value identical.
+* background_date_start (optional): it defines stop date of the group
+  background, all records within grouped set should have this value identical.
 * zoomKey (optional): Specifies whether the Timeline is only zoomed when an
   additional key is down. Available values are '' (does not apply), 'altKey',
   'ctrlKey', or 'metaKey'. Set this option if you want to be able to use the
@@ -47,6 +54,8 @@ These are the variables available in template rendering:
 * ``record``: to access the fields values selected in the timeline definition.
 * ``field_utils``: used to format and parse values (see available functions in ``web.field_utils``).
 
+
+
 You also need to declare the view in an action window of the involved model.
 
 Example:
@@ -63,6 +72,9 @@ Example:
                           date_stop="date_end"
                           string="Tasks"
                           default_group_by="user_id"
+                          background_group_by="user_id"
+                          background_date_start="user_date_start"
+                          background_date_stop="user_date_stop"
                           event_open_popup="true"
                           zoomKey="ctrlKey"
                           colors="#ec7063:user_id == false;#2ecb71:kanban_state=='done';">

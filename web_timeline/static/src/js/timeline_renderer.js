@@ -324,21 +324,22 @@ var CalendarRenderer = AbstractRenderer.extend({
         var self = this;
         var background_data = [];
         _.each(_.groupBy(datas, 'group'), function(grouped_data, group) {
-            // find related min/max data from events themselves
-            if (group > -1) {
-                var timeline_event = _.findWhere(events, {id: grouped_data[0].id});
-                var background_start = timeline_event[self.background_date_start];
-                var background_stop = timeline_event[self.background_date_stop];
-                if (background_start && background_stop) {
-                    background_data.push({
-                        id: group + '_background',
-                        start: background_start,
-                        end: background_stop,
-                        type: 'background',
-                        group: group,
-                        className: 'group-background'
-                    });
-                }
+            if (group === -1) {
+                return;
+            }
+
+            var timeline_event = _.findWhere(events, {id: grouped_data[0].id});
+            var background_start = timeline_event[self.background_date_start];
+            var background_stop = timeline_event[self.background_date_stop];
+            if (background_start && background_stop) {
+                background_data.push({
+                    id: group + '_background',
+                    start: background_start,
+                    end: background_stop,
+                    type: 'background',
+                    group: group,
+                    className: 'group-background'
+                });
             }
         })
         return background_data;

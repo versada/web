@@ -55,6 +55,9 @@ odoo.define('web_timeline.TimelineView', function (require) {
                 "date_start",
                 "date_stop",
                 "default_group_by",
+                "background_date_start",
+                "background_date_stop",
+                "background_group_by",
                 "progress",
                 "date_delay",
             ];
@@ -89,6 +92,9 @@ odoo.define('web_timeline.TimelineView', function (require) {
             this.date_start = attrs.date_start;
             this.date_stop = attrs.date_stop;
             this.date_delay = attrs.date_delay;
+            this.background_date_start = attrs.background_date_start;
+            this.background_date_stop = attrs.background_date_stop;
+            this.background_group_by = attrs.background_group_by;
 
             this.no_period = this.date_start === this.date_stop;
             this.zoomKey = attrs.zoomKey || '';
@@ -124,6 +130,9 @@ odoo.define('web_timeline.TimelineView', function (require) {
             this.rendererParams.date_delay = this.date_delay;
             this.rendererParams.colors = this.colors;
             this.rendererParams.fieldNames = fieldNames;
+            this.rendererParams.background_date_start = this.background_date_start;
+            this.rendererParams.background_date_stop = this.background_date_stop;
+            this.rendererParams.background_group_by = this.background_group_by;
             this.rendererParams.view = this;
             this.loadParams.modelName = this.modelName;
             this.loadParams.fieldNames = fieldNames;

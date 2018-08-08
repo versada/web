@@ -20,3 +20,7 @@
 .oe_timeline_view .vlabel .inner:hover{
     cursor: pointer;
 }
+
+.vis-item.vis-background.group-background {
+    background-color: rgba(255, 0, 0, 0.2);
+}

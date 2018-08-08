@@ -27,6 +27,9 @@ var CalendarRenderer = AbstractRenderer.extend({
         this.date_start = params.date_start;
         this.date_stop = params.date_stop;
         this.date_delay = params.date_delay;
+        this.background_date_start = params.background_date_start;
+        this.background_date_stop = params.background_date_stop;
+        this.background_group_by = params.background_group_by;
         this.colors = params.colors;
         this.fieldNames = params.fieldNames;
         this.view = params.view;
@@ -210,6 +213,15 @@ var CalendarRenderer = AbstractRenderer.extend({
                 data.push(self.event_data_transform(event));
             }
         });
+
+        //only add groupings in the case we know should be correct
+        if (
+            this.background_group_by &&
+            _.first(this.grouped_by) === this.background_group_by
+        ) {
+            data.push.apply(data, self.add_group_backgrounds(data, events));
+        }
+
         groups = this.split_groups(events, group_bys);
         this.timeline.setGroups(groups);
         this.timeline.setItems(data);
@@ -306,6 +318,31 @@ var CalendarRenderer = AbstractRenderer.extend({
         }
         self.color = null;
         return r;
+    },
+
+    add_group_backgrounds: function(datas, events) {
+        var self = this;
+        var background_data = [];
+        _.each(_.groupBy(datas, 'group'), function(grouped_data, group) {
+            if (group === -1) {
+                return;
+            }
+
+            var timeline_event = _.findWhere(events, {id: grouped_data[0].id});
+            var background_start = timeline_event[self.background_date_start];
+            var background_stop = timeline_event[self.background_date_stop];
+            if (background_start && background_stop) {
+                background_data.push({
+                    id: group + '_background',
+                    start: background_start,
+                    end: background_stop,
+                    type: 'background',
+                    group: group,
+                    className: 'group-background'
+                });
+            }
+        })
+        return background_data;
     },
 
     on_group_click: function (e) {

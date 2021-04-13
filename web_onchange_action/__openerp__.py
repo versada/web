@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2017 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
@@ -8,10 +7,6 @@
     "license": "AGPL-3",
     "category": "Hidden/Dependency",
     "summary": "Run actions from onchange handlers",
-    "depends": [
-        'web',
-    ],
-    "data": [
-        'views/templates.xml',
-    ],
+    "depends": ["web",],
+    "data": ["views/templates.xml",],
 }

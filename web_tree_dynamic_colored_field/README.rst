@@ -164,7 +164,7 @@ Contributors
 -  Guewen Baconnier <guewen.baconnier@camptocamp.com>
 -  Phuc Tran Thanh <phuc@trobz.com>
 -  Sylvain LE GAL <https://twitter.com/legalsylvain>
--  Jurgis Pralgauskis <jurgis.pralgauskis@gmail.com>
+-  Jurgis Pralgauskis <jurgis@versada.eu>
 
 Other credits
 -------------

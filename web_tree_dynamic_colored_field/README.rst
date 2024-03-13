@@ -172,7 +172,7 @@ Other credits
 The development of this module has been financially supported by:
 
 -  Camptocamp
--  Versada.eu
+-  Versada
 
 Maintainers
 -----------

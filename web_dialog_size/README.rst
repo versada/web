@@ -89,6 +89,7 @@ Contributors
 -  David Vidal <david.vidal@tecnativa.com>
 -  Quentin Theuret <quentin.theuret@amaris.com>
 -  Dakshal Jethava <jethavadakshal25@gmail.com>
+-  Heni Shah <henishah11@gmail.com>
 -  `Tecnativa <https://www.tecnativa.com>`__:
 
    -  Pedro M. Baeza

@@ -56,7 +56,7 @@ patch(ListRenderer.prototype, {
                     }
                 }
             }
-            return result | undefined;
+            return result || undefined;
         }
     },
 

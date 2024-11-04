@@ -1,8 +1,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "web_action_conditionable",
-    "version": "16.0.1.0.0",
-    "depends": ["base", "web"],
+    "version": "17.0.1.0.0",
+    "depends": ["web"],
     "data": [],
     "author": "Cristian Salamea,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/web",
